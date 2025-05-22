@@ -1,0 +1,46 @@
+Membuat Role  
+- database - migration - create user
+
+buat dummy (tambahkan role)  
+- database - seeders - database seeder
+
+tambahkan role di models  
+- app - models - User
+
+php artisan db:seed --class=DummyUserSeeder
+
+buat controller baru  
+php artisan make:controller SesiController
+
+buka dan buat function  
+cari web.php  
+routes - web.php
+
+buat login.blade.php diarahkan ke SesiController
+
+buat cek login di SesiController  
+daftarkan ke route (web.php) !ingat method post dan get
+
+Pengaturan di login.blade.php sesudah ada  
+info login ditambahkan untuk validasi ke database (di SesiController)
+
+Buat controller untuk tampilan data admin  
+sama seperti di atas, tambahkan route-nya  
+lanjut script
+
+
+
+buat middleware tidak bisa akses link
+routes-web
+
+buat logout  
+edit di bagian admin controller dan sesi controller  
+dan daftarkan di route, buat logout  
+tambahan setting di route
+
+----------------------------------
+
+Untuk selanjutnya menyesuaikan
+
+Catatan penting:  
+middleware berubah ke bootstrap -> app.php
