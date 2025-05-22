@@ -24,9 +24,9 @@ Route::get('/home', function () {
 Route::middleware(['auth'])->group(function () {
         //Hanya bisa diakses jika sudah login
         Route::get('/admin',[AdminController::class,'index']); //Buat method get untuk menampilkan halaman admin
-        Route::get('/admin/operator',[AdminController::class,'operator']); //Buat method get untuk operator
-        Route::get('/admin/keuangan',[AdminController::class,'keuangan']); //Buat method get untuk menampilkan halaman keuangan
-        Route::get('/admin/marketing',[AdminController::class,'marketing']); //Buat method get untuk manampilkan halaman marketing
+        Route::get('/admin/operator',[AdminController::class,'operator'])->middleware('userAkses:operator'); //Buat method get untuk operator
+        Route::get('/admin/keuangan',[AdminController::class,'keuangan'])->middleware('userAkses:keuangan');; //Buat method get untuk menampilkan halaman keuangan
+        Route::get('/admin/marketing',[AdminController::class,'marketing'])->middleware('userAkses:marketing');; //Buat method get untuk manampilkan halaman marketing
         Route::get('/logout',[SesiController::class,'logout']); //Buat method get untuk logout
 });
 

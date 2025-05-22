@@ -10,8 +10,11 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    //Tambahkan middleware userAkses untuk mengarahkan ke halaman login jika belum login
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            "userAkses" => App\Http\Middleware\UserAkses::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
